@@ -1,0 +1,19 @@
+This is the kernel module for controlling the backlight on Samsung laptops.
+
+Follow these steps when running Fedora 15 on a Samsung NC10:
+* install dependencies: "sudo yum install kernel-devel gcc"
+* clone this repository
+* compile the module by running "make"
+* install the kernel module:
+	sudo cp samsung-backlight.ko /lib/modules/$(uname -r)/kernel/
+	sudo depmod -a
+	sudo modprobe samsung-backlight
+* update your /boot/grub/grub.conf like this:
+	(...)
+	title Fedora (2.6.38.8-35.fc15.i686)
+        	root (hd0,0)
+        	kernel /vmlinuz-2.6.38.8-35.fc15.i686 acpi_backlight=vendor ro (...)
+* reboot
+
+See this blog post for details:
+http://linuxtweaking.blogspot.com/2011/01/fedora-14-how-to-make-samsung-fn.html
