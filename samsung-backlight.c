@@ -18,6 +18,7 @@
 #include <linux/fb.h>
 #include <linux/dmi.h>
 #include <linux/version.h>
+#include <linux/delay.h>
 
 #define MAX_BRIGHT	0xff
 #define OFFSET		0xf4
